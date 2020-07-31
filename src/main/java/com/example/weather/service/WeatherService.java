@@ -19,7 +19,7 @@ public class WeatherService {
 
     private static final String WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather?q={city},{country}&APPID={apiKey}&units=imperial";
 
-    @Value("${api.openweathermap.key}")
+    @Value("${API_KEY}")
     private String apiKey;
 
     private final RestTemplate restTemplate;
