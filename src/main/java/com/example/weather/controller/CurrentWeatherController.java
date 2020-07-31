@@ -1,0 +1,25 @@
+package com.example.weather.controller;
+
+import com.example.weather.model.CurrentWeather;
+import com.example.weather.service.WeatherService;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import java.math.BigDecimal;
+
+@Controller
+public class CurrentWeatherController {
+
+    private final WeatherService weatherService;
+
+    @GetMapping("/current-weather")
+    public String getCurrentWeather(Model model) {
+        model.addAttribute("currentWeather", weatherService.getCurrentWeather("Detroit ","US"));
+        return "current-weather";
+    }
+
+    public CurrentWeatherController(WeatherService weatherService) {
+        this.weatherService = weatherService;
+    }
+}
